@@ -41,14 +41,19 @@ class _InfoCardState extends State<InfoCard> {
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Container(
           width: 200,
+          height: 75,
           padding: const EdgeInsets.all(14),
-          child: DefaultTextStyle(
-            style: const TextStyle(fontSize: 14, color: Colors.white, fontWeight: FontWeight.bold),
+          child: DefaultTextStyle.merge(
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 14,
+              color: Colors.white,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text('${widget.place},  $monthYear'),
-                const SizedBox(height: 6),
                 Text(
                   '${widget.make} ${widget.model}',
                   overflow: TextOverflow.ellipsis,

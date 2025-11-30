@@ -28,6 +28,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'RobotoFlex',
+      ),
       home: FutureBuilder<Photo>(
         future: loadPhoto(),
         builder: (context, snapshot) {
