@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
 
-class CounterWidget extends StatefulWidget {
-  const CounterWidget({super.key});
+import './image_widget.dart';
+import './info_card.dart';
+import '../models/photo.dart';
 
-  @override
-  State<CounterWidget> createState() => _CounterWidgetState();
-}
+class Frame extends StatelessWidget {
+  final Photo photo;
 
-class _CounterWidgetState extends State<CounterWidget> {
-  int count = 0;
+  const Frame({
+    super.key,
+    required this.photo,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-        child: Center(
-        child: ElevatedButton(
-          onPressed: () => setState(() => count++),
-          child: Text('$count'),
+    return Stack(
+      children: [
+        ImageWidget(image: photo.image),
+        Positioned(
+          bottom: 32,
+          right: 32,
+          child: InfoCard(
+            make: photo.make,
+            model: photo.model,
+            place: photo.place,
+            datetime: photo.datetime,
+          ),
         ),
-      )
+      ],
     );
   }
 }

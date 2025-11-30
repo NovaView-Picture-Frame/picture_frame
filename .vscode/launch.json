@@ -1,13 +1,19 @@
 {
     "version": "0.2.0",
     "configurations": [
-        {
+        { 
             "name": "Debug",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             "deviceId": "elinux-gbm",
-            "preLaunchTask": "Build Debug"
+            "preLaunchTask": "Build Debug",
+            "env": {
+                "FLUTTER_ENGINE_SWITCHES": "1",
+                "FLUTTER_ENGINE_SWITCH_1": "enable-impeller=true",
+
+                "CONFIG": "config.yaml",
+            },
         }
     ]
 }
